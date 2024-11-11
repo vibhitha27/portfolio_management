@@ -9,9 +9,11 @@ import Portfolio from './components/Portfolio';
 function App() {
   return (
     <AuthProvider>
+      <Register/>
       <Login />
       <Portfolio/>
       <GetPortfolio/>
+      <Register/>
     </AuthProvider>
   );
 }
