@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 
 const DashboardPage = () => {
   const location = useLocation();
-  const email = location.state?.email; // Retrieve email from state
+  const email = location.state?.email;
   const [loggedInTime, setLoggedInTime] = useState('');
   const [loginHistory, setLoginHistory] = useState([]);
 

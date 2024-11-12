@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useUser } from '../context/Context';
+import { useUser } from '../context/Context'; // Assuming useUser context is set up
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';  // Import AOS styles
 
 const Login = () => {
+    const navigate = useNavigate();  // Use useNavigate hook to navigate after successful login
     const [email, setEmailInput] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
-    const { Email, setEmail } = useUser();
+    const { setEmail } = useUser();  // Assuming setEmail updates the global user context
 
     const [passwordVisible, setPasswordVisible] = useState(false); // For toggling password visibility
 
@@ -22,8 +26,10 @@ const Login = () => {
 
             if (response.status === 200) {
                 setMessage(response.data.message);
-                setEmail(email); // Update context with email
-                console.log(response.data.email);
+                setEmail(email);  // Update the global user context with the email
+
+                // Navigate to /homepage after successful login
+                navigate('/homepage');
             } else {
                 setMessage(response.data.message);
             }
@@ -32,25 +38,36 @@ const Login = () => {
         }
     };
 
+    // Initialize AOS on component mount
+    useEffect(() => {
+        AOS.init({ duration: 1000 });
+    }, []);
+
     return (
         <div style={{
             height: '100vh',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            background: 'url(https://i.pinimg.com/originals/cf/88/99/cf889965c8db4cace0467ba17cbab3f6.gif) no-repeat center center/cover',
+            background: 'linear-gradient(135deg, #F7B7A3, #FF6D73)', // New gradient: soft coral to pink
         }}>
-            <div style={{
-                backgroundColor: 'rgba(255, 255, 255, 0.8)',
-                padding: '40px',
-                borderRadius: '8px',
-                boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)',
-                textAlign: 'center',
-                width: '350px',
-            }}>
+            <div
+                data-aos="fade-up" // AOS animation
+                style={{
+                    backgroundColor: 'rgba(255, 255, 255, 0.8)', // Slightly lighter background for the form
+                    padding: '40px',
+                    borderRadius: '16px', // Increased radius for more rounded corners
+                    boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.2)',
+                    textAlign: 'center',
+                    width: '350px',
+                    backdropFilter: 'blur(10px)', // Frosted glass effect
+                    border: '1px solid rgba(255, 255, 255, 0.3)', // Light border to emphasize frosted effect
+                }}
+            >
                 <h2 style={{
                     fontSize: '2rem',
                     marginBottom: '20px',
+                    color: '#333', // Dark text for contrast
                 }}>Login</h2>
 
                 {message && <p style={{ color: 'red', fontWeight: 'bold' }}>{message}</p>}
@@ -102,7 +119,7 @@ const Login = () => {
                         type="submit"
                         style={{
                             padding: '12px',
-                            backgroundColor: '#8ca262',
+                            backgroundColor: '#FF6D73', // Using a color from the gradient
                             color: '#fff',
                             border: 'none',
                             borderRadius: '4px',
@@ -115,8 +132,9 @@ const Login = () => {
                         Login
                     </button>
                 </form>
-
-                <p style={{ marginTop: '10px', color: '#555' }}>Current Email in Context: {Email}</p>
+                <p style={{ marginTop: '20px' }}>
+                    Not a User? <a href='/register' style={{ color: '#FF6D73' }}>Register</a>
+                </p>
             </div>
         </div>
     );

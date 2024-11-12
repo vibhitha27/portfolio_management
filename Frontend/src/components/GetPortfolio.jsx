@@ -1,4 +1,3 @@
-// src/components/GetPortfolio.jsx
 import React, { useContext, useState } from 'react';
 import axios from 'axios';
 import { useUser } from '../context/Context';
@@ -7,7 +6,7 @@ import { useUser } from '../context/Context';
 const GetPortfolio = () => {
     const [portfolioData, setPortfolioData] = useState(null);
     const [message, setMessage] = useState('');
-    const { Email } = useUser(); // Use 'Email' from context
+    const { Email } = useUser();
 
     const handleGetPortfolio = async () => {
         if (!Email) {

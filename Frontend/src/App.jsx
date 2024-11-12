@@ -1,4 +1,3 @@
-// src/App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
@@ -18,15 +17,15 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/signup" element={<SignUpPage />} />
-          <Route path="/login" element={<Login />} /> 
+          <Route path="/get-portfolio" element={<GetPortfolio />} />
           <Route path="/homepage" element={<HomePage />} />
           <Route path="/portfoliocreation" element={<PortfolioCreation />} />
-          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path='/updateportfolio' element={<Portfolio />} />
           <Route path="/dashboard" element={<DashboardPage />} />
-          <Route path="/get-portfolio" element={<GetPortfolio />} />
+          <Route path="/signup" element={<SignUpPage />} />
         </Routes>
       </Router>
     </AuthProvider>

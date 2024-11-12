@@ -23,8 +23,8 @@ const Register = () => {
             setMessage(response.data.message);
 
             // Navigate to the signup page after successful registration
-            if (response.data.success) {  // Assuming 'success' is part of the response
-                navigate('/SignUpPage');
+            if (response.status==201) {  // Assuming 'success' is part of the response
+                navigate('/login');
             }
         } catch (error) {
             setMessage(error.response?.data?.message || 'Error registering user');
@@ -32,7 +32,7 @@ const Register = () => {
     };
 
     const handleBack = () => {
-        navigate('/SignUpPage');  // Navigate to the SignUpPage when back is clicked
+        navigate('/');  // Navigate to the SignUpPage when back is clicked
     };
 
     return (

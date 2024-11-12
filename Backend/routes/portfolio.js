@@ -39,19 +39,22 @@ router.post('/login', async (req, res) => {
     });
 });
 
-
-// Create or update portfolio (one time per user)
 router.post('/portfolio', async (req, res) => {
     const { email, portfolioData } = req.body;
 
     const user = await User.findOne({ email });
     if (!user) return res.status(404).json({ message: 'User not found' });
 
-    // Update the portfolio
-    user.portfolio = { ...user.portfolio, ...portfolioData };
+    // Check if portfolioData exists and is not empty
+    if (portfolioData && Object.keys(portfolioData).length > 0) {
+        user.portfolio = { ...user.portfolio, ...portfolioData };
+    } else {
+        return res.status(400).json({ message: 'No portfolio data provided' });
+    }
+
     await user.save();
 
-    res.status(200).json({ message: 'Portfolio updated successfully' });
+    res.status(200).json({ message: 'Portfolio updated successfully', user });
 });
 
 // Get portfolio using POST (changed to POST and new route)

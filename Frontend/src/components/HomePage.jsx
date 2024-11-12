@@ -8,7 +8,7 @@ const HomePage = () => (
       <p style={styles.heroDescription}>
         Discover new opportunities, connect with others, and unlock your potential.
       </p>
-      <Link to="/create-portfolio">
+      <Link to="/portfoliocreation">
         <button style={styles.heroButton}>Create</button>
       </Link>
     </div>
@@ -17,7 +17,7 @@ const HomePage = () => (
       <h2 style={styles.featuresTitle}>Features</h2>
       <div style={styles.featuresList}>
         <div style={styles.featureItem}>
-          <Link to="/update-portfolio">
+          <Link to="/updateportfolio">
             <h3 style={styles.featureItemTitle}>Update Portfolio</h3>
           </Link>
         </div>
