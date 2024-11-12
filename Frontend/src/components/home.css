@@ -1,0 +1,49 @@
+.home-container {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .home-background-image1 {
+    position: absolute;
+    top:100;
+    left: 100;
+    width: 100%;
+    height: 100%;
+    background: url('https://cdn.pixabay.com/photo/2016/06/02/02/33/triangles-1430105_1280.png') no-repeat center center/cover; /* Reference to the home page background image */
+    z-index: -1;
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+    color: rgb(11, 0, 0);
+  }
+  
+  .quote {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: black;
+    font-style: italic;
+    font-family: 'Times New Roman', Times, serif;
+    font-variant: initial;
+  }
+  
+  .get-started-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: white;
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .get-started-btn:hover {
+    background: rgba(0, 0, 0, 0.9);
+  }

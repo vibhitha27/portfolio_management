@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useUser } from '../context/Context';
 import { QRCodeCanvas } from 'qrcode.react';
 
-const Portfolio = () => {
+const PortfolioCreation = () => {
     const { Email } = useUser();
     const [portfolioData, setPortfolioData] = useState({
         name: '',
@@ -49,7 +49,7 @@ const Portfolio = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!Email) {
-            setMessage('You need to be logged in to update your portfolio');
+            setMessage('You need to be logged in to create your portfolio');
             return;
         }
 
@@ -62,9 +62,9 @@ const Portfolio = () => {
             await axios.post('http://localhost:5000/portfolio', formData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             });
-            setMessage('Portfolio updated successfully!');
+            setMessage('Portfolio created successfully!');
         } catch {
-            setMessage('Error updating portfolio');
+            setMessage('Error creating portfolio');
         }
     };
 
@@ -102,7 +102,7 @@ const Portfolio = () => {
                     color: '#ffc107',
                     marginBottom: '1rem',
                     fontSize: '2rem',
-                }}>Update Portfolio</h2>
+                }}>Create Portfolio</h2>
                 <form onSubmit={handleSubmit}>
                     {['name', 'dob', 'interests', 'hobbies', 'careerSummary', 'skills', 'workSamples', 'awards', 'honors', 'services'].map((field, index) => (
                         <div key={index} style={{ marginBottom: '1.2rem' }}>
@@ -141,7 +141,7 @@ const Portfolio = () => {
                         borderRadius: '4px',
                         cursor: 'pointer',
                         transition: 'background-color 0.3s ease',
-                    }}>Update Portfolio</button>
+                    }}>Create Portfolio</button>
                 </form>
 
                 {message && <div style={{
@@ -203,4 +203,4 @@ const Portfolio = () => {
     );
 };
 
-export default Portfolio;
+export default PortfolioCreation;
