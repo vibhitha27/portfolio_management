@@ -14,7 +14,7 @@ const GetPortfolio = () => {
             return;
         }
         try {
-            const response = await axios.post('http://localhost:5000/getportfolio', { email: Email });
+            const response = await axios.post('https://portfolio-management-h11w.onrender.com/getportfolio', { email: Email });
             setPortfolioData(response.data);
         } catch (error) {
             setMessage(error.response?.data?.message || 'Error retrieving portfolio');

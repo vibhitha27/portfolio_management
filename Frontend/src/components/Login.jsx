@@ -22,7 +22,7 @@ const Login = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/login', { email, password });
+            const response = await axios.post('https://portfolio-management-h11w.onrender.com/login', { email, password });
 
             if (response.status === 200) {
                 setMessage(response.data.message);

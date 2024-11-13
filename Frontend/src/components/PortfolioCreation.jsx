@@ -25,7 +25,7 @@
 //     // useEffect(() => {
 //     //     if (Email) {
 //     //         axios
-//     //             .post('http://localhost:5000/getportfolio', { email: Email })
+//     //             .post('https://portfolio-management-h11w.onrender.com/getportfolio', { email: Email })
 //     //             .then((response) => {
 //     //                 setPortfolioData(response.data);
 //     //             })
@@ -55,7 +55,7 @@
 //         }
 
 //         try {
-//             await axios.post('http://localhost:5000/portfolio', {
+//             await axios.post('https://portfolio-management-h11w.onrender.com/portfolio', {
 //                 email: Email,
 //                 portfolioData,
 //             }, {
@@ -231,7 +231,7 @@ const PortfolioCreation = () => {
     useEffect(() => {
         if (Email) {
             axios
-                .post('http://localhost:5000/getportfolio', { email: Email })
+                .post('https://portfolio-management-h11w.onrender.com/getportfolio', { email: Email })
                 .then((response) => {
                     setPortfolioData(response.data);
                 })
@@ -261,7 +261,7 @@ const PortfolioCreation = () => {
         }
 
         try {
-            await axios.post('http://localhost:5000/portfolio', {
+            await axios.post('https://portfolio-management-h11w.onrender.com/portfolio', {
                 email: Email,
                 portfolioData,
             }, {
