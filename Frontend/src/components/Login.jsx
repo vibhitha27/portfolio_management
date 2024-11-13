@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useUser } from '../context/Context'; // Assuming useUser context is set up
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';  // Import AOS styles
 
@@ -133,7 +133,7 @@ const Login = () => {
                     </button>
                 </form>
                 <p style={{ marginTop: '20px' }}>
-                    Not a User? <a href='/register' style={{ color: '#FF6D73' }}>Register</a>
+                    Not a User? <Link to='/register' style={{ color: '#FF6D73' }}>Register</Link>
                 </p>
             </div>
         </div>
