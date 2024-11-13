@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const connectDB = () => {
-    mongoose.connect('mongodb://localhost:27017/portfolioDB', {
+    mongoose.connect('mongodb+srv://vibhitha:mypass@cluster0.magac.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
         useNewUrlParser: true,
         useUnifiedTopology: true,
     })
